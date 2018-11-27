@@ -200,10 +200,10 @@ xqueue_consumer-restart: ## Kill the XQueue development server. The watcher proc
 	docker exec -t edx.devstack.$* bash -c 'source /edx/app/$*/$*_env && cd /edx/app/$*/$*/ && make static'
 
 lms-static: ## Rebuild static assets for the LMS container
-	docker exec -t edx.devstack.lms bash -c 'source /edx/app/edxapp/edxapp_env && cd /edx/app/edxapp/edx-platform/ && paver update_assets'
+	docker exec -t edx.devstack.lms bash -c 'source /edx/app/edxapp/edxapp_env && cd /edx/app/edxapp/edx-platform/ && npm install && django-admin.py compilemessages -v3 -l en && paver update_assets --settings=devstack_docker'
 
 studio-static: ## Rebuild static assets for the Studio container
-	docker exec -t edx.devstack.studio bash -c 'source /edx/app/edxapp/edxapp_env && cd /edx/app/edxapp/edx-platform/ && paver update_assets'
+	docker exec -t edx.devstack.studio bash -c 'source /edx/app/edxapp/edxapp_env && cd /edx/app/edxapp/edx-platform/ && npm install && django-admin.py compilemessages -v3 -l en && paver update_assets --settings=devstack_docker'
 
 lms-i18n:
 	docker exec -t edx.devstack.lms bash -c 'source /edx/app/edxapp/edxapp_env && cd /edx/app/edxapp/edx-platform/ && python ./manage.py lms --settings=devstack_docker compilejsi18n && python ./manage.py cms --settings=devstack_docker compilejsi18n'
