@@ -63,6 +63,17 @@ below, run the following sequence of commands if you want to use the most up-to-
 
 This will stop any running devstack containers, pull the latest images, and then start all of the devstack containers.
 
+Clone this repo
+---------------
+
+```
+mkdir /path/to/hawthorn/dir
+git clone https://github.com/teltek/devstack.git
+git checkout teltek/open-release/hawthorn.master
+cd devstack
+export OPENEDX_RELEASE="hawthorn.master"
+```
+
 Getting Started
 ---------------
 
