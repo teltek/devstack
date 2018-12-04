@@ -70,8 +70,8 @@ Clone this repo
 
    mkdir /path/to/hawthorn/dir
    git clone https://github.com/teltek/devstack.git
-   git checkout teltek/open-release/hawthorn.master
    cd devstack
+   git checkout teltek/open-release/hawthorn.master
    export OPENEDX_RELEASE="hawthorn.master"
 
 
